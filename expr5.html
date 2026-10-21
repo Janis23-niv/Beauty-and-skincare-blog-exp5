@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivila Glow & Grace | Beauty & Skincare</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fff9f8;
+    color: #49343c;
+    line-height: 1.7;
+}
+
+:root {
+    --pink: #c34f79;
+    --dark: #78364f;
+    --light: #fbe6eb;
+    --cream: #fff9f3;
+}
+
+/* Navigation */
+nav {
+    background: white;
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 3px 15px #78364f12;
+}
+
+.logo {
+    color: var(--dark);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #62404d;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+/* Hero section */
+.hero {
+    min-height: 490px;
+    padding: 75px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+    background: linear-gradient(120deg, #fbe5eb, #fff4e9, #f9e0e9);
+}
+
+.hero-text {
+    flex: 1 1 330px;
+}
+
+.tag {
+    color: var(--pink);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    color: var(--dark);
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--pink);
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 500px;
+    color: #705c64;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--pink);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+
+.hero-art {
+    flex: 1 1 280px;
+    min-height: 290px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beauty-circle {
+    width: min(310px, 80vw);
+    height: min(310px, 80vw);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #e9a7b9, #fff0e6);
+    border: 12px solid #ffffffa8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110px;
+    box-shadow: 0 15px 45px #9f4e6a20;
+    position: relative;
+}
+
+.beauty-circle::after {
+    content: "YOUR DAILY DOSE OF GLOW";
+    position: absolute;
+    bottom: -20px;
+    background: white;
+    padding: 8px 17px;
+    border-radius: 30px;
+    color: var(--dark);
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* General sections */
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    color: var(--dark);
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.section-title p {
+    color: #8a707a;
+    margin-top: 8px;
+}
+
+/* Blog cards */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px #79384e0d;
+    border: 1px solid #f5e6e9;
+    transition: 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px #79384e16;
+}
+
+.blog-art {
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+}
+
+.art-one { background: #f9e1e8; }
+.art-two { background: #f9ead8; }
+.art-three { background: #e8e9d8; }
+
+.blog-content {
+    padding: 23px;
+}
+
+.category {
+    color: var(--pink);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.blog-content h3 {
+    color: var(--dark);
+    font-family: Georgia, serif;
+    font-size: 21px;
+    margin: 8px 0;
+}
+
+.blog-content p {
+    color: #78666d;
+    font-size: 14px;
+}
+
+.read-btn {
+    margin-top: 17px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--pink);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Daily routine */
+.routine {
+    background: #fbe9ed;
+}
+
+.routine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.routine-item {
+    background: #fffaf8;
+    border-radius: 15px;
+    padding: 25px 18px;
+    text-align: center;
+}
+
+.routine-item .emoji {
+    font-size: 35px;
+}
+
+.routine-item h3 {
+    color: var(--dark);
+    margin: 8px 0;
+}
+
+/* Interactive skin quiz */
+.skin-box {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 22px;
+    background: white;
+    border: 1px solid #f3dce4;
+    box-shadow: 0 10px 35px #78364f0d;
+    text-align: center;
+}
+
+.skin-box label {
+    display: block;
+    font-weight: 600;
+    margin: 20px 0 8px;
+}
+
+select {
+    width: 100%;
+    max-width: 400px;
+    padding: 13px;
+    border: 1px solid #e7bdcc;
+    border-radius: 10px;
+    background: #fff9fb;
+    font-size: 15px;
+    color: #49343c;
+}
+
+#result {
+    display: none;
+    margin-top: 22px;
+    background: #fff1f4;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+
+#result h3 {
+    color: var(--dark);
+    margin-bottom: 8px;
+}
+
+#result ul {
+    padding-left: 22px;
+    margin-top: 8px;
+}
+
+/* Newsletter-style closing section */
+.quote {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 48px 8%;
+}
+
+.quote h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.quote p {
+    color: #f8dce5;
+}
+
+/* Footer */
+footer {
+    background: #512b3a;
+    color: #f9e6ec;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+}
+
+footer strong {
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 760px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 0 8px;
+    }
+
+    .hero {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .blog-grid,
+    .routine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 48px 6%;
+    }
+
+    .skin-box {
+        padding: 24px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">✿ Glow & Grace</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#blogs">Beauty Blogs</a>
+        <a href="#routine">Routine</a>
+        <a href="#skincare">Skin Guide</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="home">
+    <div class="hero-text">
+        <span class="tag">BEAUTY • SELF-CARE • CONFIDENCE</span>
+
+        <h1>Your Skin,<br>Your Story,<br><span>Your Glow.</span></h1>
+
+        <p>
+            Welcome to your little corner of beauty!
+            Discover simple skincare routines, everyday beauty
+            inspiration, and tips to care for your unique skin.
+        </p>
+
+        <a href="#blogs" class="btn">Explore Beauty Blogs ↗</a>
+    </div>
+
+    <div class="hero-art">
+        <div class="beauty-circle">🌸</div>
+    </div>
+</header>
+
+<!-- Blog section -->
+<section id="blogs">
+    <div class="section-title">
+        <span class="tag">THE BEAUTY JOURNAL</span>
+        <h2>A Little Beauty Inspiration</h2>
+        <p>Small self-care habits, beautiful everyday results.</p>
+    </div>
+
+    <div class="blog-grid">
+
+        <article class="blog-card">
+            <div class="blog-art art-one">🧴</div>
+            <div class="blog-content">
+                <span class="category">Skincare Basics</span>
+                <h3>Your Daily Skincare Routine</h3>
+                <p>
+                    Learn how cleansing, moisturizing, and sunscreen
+                    can become simple parts of your everyday routine.
+                </p>
+                <button class="read-btn"
+                    onclick="readBlog('routine')">Read More ↗</button>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-art art-two">🌿</div>
+            <div class="blog-content">
+                <span class="category">Natural Beauty</span>
+                <h3>Little Habits, Healthy Glow</h3>
+                <p>
+                    Explore gentle self-care habits, balanced nutrition,
+                    hydration, and a consistent skincare routine.
+                </p>
+                <button class="read-btn"
+                    onclick="readBlog('habits')">Read More ↗</button>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-art art-three">✨</div>
+            <div class="blog-content">
+                <span class="category">Skin Guide</span>
+                <h3>Understand Your Skin Type</h3>
+                <p>
+                    Discover why knowing your skin type helps you
+                    choose a suitable skincare routine.
+                </p>
+                <button class="read-btn"
+                    onclick="readBlog('skin')">Read More ↗</button>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- Daily routine -->
+<section class="routine" id="routine">
+    <div class="section-title">
+        <span class="tag">YOUR EVERYDAY RITUAL</span>
+        <h2>Three Steps to Care</h2>
+        <p>Keep your routine simple, gentle, and consistent.</p>
+    </div>
+
+    <div class="routine-grid">
+        <div class="routine-item">
+            <div class="emoji">🫧</div>
+            <h3>01. Cleanse</h3>
+            <p>Gently cleanse your skin to remove dirt and excess oil.</p>
+        </div>
+
+        <div class="routine-item">
+            <div class="emoji">💧</div>
+            <h3>02. Moisturize</h3>
+            <p>Choose a moisturizer that suits your skin's needs.</p>
+        </div>
+
+        <div class="routine-item">
+            <div class="emoji">☀️</div>
+            <h3>03. Protect</h3>
+            <p>Use broad-spectrum sunscreen during the daytime.</p>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript DOM and events -->
+<section id="skincare">
+    <div class="section-title">
+        <span class="tag">YOUR PERSONAL SKIN GUIDE</span>
+        <h2>Let's Find Your Skin Tips ♡</h2>
+        <p>Select your skin type to explore a simple care guide.</p>
+    </div>
+
+    <div class="skin-box">
+        <div style="font-size:45px;">🌷</div>
+        <h3 style="color:#78364f;">What is your skin type?</h3>
+        <p>Choose an option below for your personalized tips.</p>
+
+        <label for="skinType">Select your skin type</label>
+
+        <select id="skinType">
+            <option value="">-- Choose your skin type --</option>
+            <option value="normal">Normal Skin</option>
+            <option value="oily">Oily Skin</option>
+            <option value="dry">Dry Skin</option>
+            <option value="combination">Combination Skin</option>
+            <option value="sensitive">Sensitive Skin</option>
+        </select>
+
+        <br><br>
+
+        <button class="btn" onclick="showTips()">
+            Discover My Tips ✨
+        </button>
+
+        <div id="result" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- Closing section -->
+<div class="quote">
+    <h2>“Self-care is your own kind of beautiful.”</h2>
+    <p>Take a moment for yourself. You deserve it. ♡</p>
+</div>
+
+<footer>
+    <p><strong>Nivila Glow & Grace</strong></p>
+    <p>Beauty & Skincare Blogs | Learn • Care • Glow</p>
+    <p>© 2026 Nivila Glow & Grace. All rights reserved.</p>
+</footer>
+
+<script>
+// DOM manipulation and click events
+
+function showTips() {
+    var skin = document.getElementById("skinType").value;
+    var result = document.getElementById("result");
+
+    var tips = {
+        normal: {
+            title: "🌸 Normal Skin Care",
+            text: "Maintain your skin's natural balance.",
+            items: [
+                "Use a gentle cleanser.",
+                "Apply a suitable moisturizer.",
+                "Use broad-spectrum sunscreen."
+            ]
+        },
+
+        oily: {
+            title: "🌿 Oily Skin Care",
+            text: "Keep your routine gentle and lightweight.",
+            items: [
+                "Use a gentle, non-comedogenic cleanser.",
+                "Choose an oil-free moisturizer.",
+                "Avoid harsh scrubbing and over-cleansing."
+            ]
+        },
+
+        dry: {
+            title: "💧 Dry Skin Care",
+            text: "Focus on hydration and protecting your skin barrier.",
+            items: [
+                "Use a gentle, non-drying cleanser.",
+                "Apply a moisturizing cream.",
+                "Avoid very hot water and harsh products."
+            ]
+        },
+
+        combination: {
+            title: "🌷 Combination Skin Care",
+            text: "Care for both oily and dry areas gently.",
+            items: [
+                "Choose a gentle cleanser.",
+                "Use a lightweight moisturizer.",
+                "Adjust products to the needs of different areas."
+            ]
+        },
+
+        sensitive: {
+            title: "🩷 Sensitive Skin Care",
+            text: "Choose gentle products and introduce them slowly.",
+            items: [
+                "Prefer fragrance-free products.",
+                "Patch-test new products before regular use.",
+                "Stop using products that cause irritation."
+            ]
+        }
+    };
+
+    if (skin === "") {
+        result.style.display = "block";
+        result.innerHTML =
+            "<h3>Please select your skin type!</h3>" +
+            "<p>Choose an option above to view your skincare guide.</p>";
+        return;
+    }
+
+    var selected = tips[skin];
+    var list = "";
+
+    for (var i = 0; i < selected.items.length; i++) {
+        list += "<li>" + selected.items[i] + "</li>";
+    }
+
+    result.innerHTML =
+        "<h3>" + selected.title + "</h3>" +
+        "<p>" + selected.text + "</p>" +
+        "<ul>" + list + "</ul>";
+
+    result.style.display = "block";
+}
+
+// Blog card click events
+function readBlog(topic) {
+    var messages = {
+        routine:
+            "Daily Routine: Cleanse gently, moisturize, and apply broad-spectrum sunscreen during the daytime. Choose products that suit your skin.",
+
+        habits:
+            "Healthy Habits: Stay hydrated, eat a balanced diet, get adequate sleep, and maintain a consistent skincare routine.",
+
+        skin:
+            "Know Your Skin: Skin may be normal, oily, dry, combination, or sensitive. Observe how your skin feels and choose gentle products accordingly."
+    };
+
+    alert(messages[topic]);
+}
+</script>
+
+</body>
+</html>
